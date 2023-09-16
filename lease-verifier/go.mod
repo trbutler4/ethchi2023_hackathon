@@ -3,6 +3,14 @@ module lease-verifier
 go 1.21.1
 
 require (
+	github.com/ethereum/go-ethereum v1.11.5
+	github.com/gorilla/mux v1.8.0
+	github.com/iden3/go-circuits/v2 v2.0.0
+	github.com/iden3/go-iden3-auth/v2 v2.0.0-beta.2
+	github.com/iden3/iden3comm/v2 v2.0.0
+)
+
+require (
 	github.com/benbjohnson/clock v1.3.5 // indirect
 	github.com/btcsuite/btcd/btcec/v2 v2.3.2 // indirect
 	github.com/crackcomm/go-gitignore v0.0.0-20170627025303-887ab5e44cc3 // indirect
@@ -10,7 +18,6 @@ require (
 	github.com/deckarep/golang-set/v2 v2.3.0 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.2.0 // indirect
 	github.com/dustinxie/ecc v0.0.0-20210511000915-959544187564 // indirect
-	github.com/ethereum/go-ethereum v1.11.5 // indirect
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
@@ -19,8 +26,6 @@ require (
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/holiman/uint256 v1.2.2-0.20230321075855-87b91420868c // indirect
 	github.com/iden3/contracts-abi/state/go/abi v1.0.0-beta.3 // indirect
-	github.com/iden3/go-circuits/v2 v2.0.0 // indirect
-	github.com/iden3/go-iden3-auth/v2 v2.0.0-beta.2 // indirect
 	github.com/iden3/go-iden3-core/v2 v2.0.0 // indirect
 	github.com/iden3/go-iden3-crypto v0.0.15 // indirect
 	github.com/iden3/go-jwz/v2 v2.0.0 // indirect
@@ -31,7 +36,6 @@ require (
 	github.com/iden3/go-rapidsnark/witness/v2 v2.0.0 // indirect
 	github.com/iden3/go-rapidsnark/witness/wazero v0.0.0-20230524142950-0986cf057d4e // indirect
 	github.com/iden3/go-schema-processor/v2 v2.0.0 // indirect
-	github.com/iden3/iden3comm/v2 v2.0.0 // indirect
 	github.com/ipfs/boxo v0.8.0 // indirect
 	github.com/ipfs/go-cid v0.4.1 // indirect
 	github.com/ipfs/go-ipfs-api v0.6.0 // indirect

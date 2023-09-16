@@ -16,12 +16,33 @@ import (
     "github.com/iden3/go-iden3-auth/v2/pubsignals"
     "github.com/iden3/go-iden3-auth/v2/state"
     "github.com/iden3/iden3comm/v2/protocol"
+    "github.com/gorilla/mux"
 )
 
 func main() {
-    http.HandleFunc("/api/sign-in", GetAuthRequest)
-    http.HandleFunc("/api/callback", Callback)
-    http.ListenAndServe(":8080", nil)
+    r := mux.NewRouter() 
+
+    r.HandleFunc("/api/sign-in", GetAuthRequest)
+    r.HandleFunc("/api/callback", Callback)
+
+    // Enable CORS middleware
+	corsMiddleware := func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			// Allow requests from any origin
+			w.Header().Set("Access-Control-Allow-Origin", "*")
+			
+			// Allow common HTTP methods
+			w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE")
+
+			// Allow certain headers
+			w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+			// Continue processing the request
+			next.ServeHTTP(w, r)
+		})
+	}
+
+    http.ListenAndServe(":8080", corsMiddleware(r))
 }
 
 // Create a map to store the auth requests and their session IDs

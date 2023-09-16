@@ -1,0 +1,88 @@
+{
+  "name": "issuer-node-ui",
+  "version": "1.0.0",
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1",
+    "ajv-formats-draft2019": "^1.6.1",
+    "antd": "^5.6.4",
+    "axios": "^1.4.0",
+    "copy-to-clipboard": "^3.3.3",
+    "dayjs": "^1.11.9",
+    "js-sha3": "^0.8.0",
+    "qrcode.react": "^3.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-jwt": "^1.2.0",
+    "react-router-dom": "^6.14.1",
+    "react-syntax-highlighter": "^15.5.0",
+    "validator": "^13.9.0",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@iden3/eslint-config-react-ts": "^1.6.0",
+    "@types/node": "^20.3.3",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@types/react-syntax-highlighter": "^15.5.7",
+    "@types/validator": "^13.7.17",
+    "@vitejs/plugin-react": "^4.0.1",
+    "eslint": "^8.44.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.8",
+    "sass": "^1.63.6",
+    "stylelint": "^15.9.0",
+    "stylelint-config-standard": "^33.0.0",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.9",
+    "vite-plugin-checker": "^0.6.1",
+    "vite-plugin-svgr": "^3.2.0",
+    "vite-tsconfig-paths": "^4.2.0"
+  },
+  "scripts": {
+    "build": "vite build",
+    "format": "prettier --write .",
+    "lint": "eslint --ext .ts,.tsx .",
+    "lint:fix": "npm run lint -- --fix",
+    "lint-styles": "stylelint '**/*.scss'",
+    "lint-styles:fix": "npm run lint-styles -- --fix",
+    "prepare": "cd .. && husky install ui/.husky",
+    "start": "vite"
+  },
+  "eslintConfig": {
+    "extends": "@iden3/eslint-config-react-ts",
+    "ignorePatterns": [
+      "dist"
+    ]
+  },
+  "lint-staged": {
+    "*.{json,md}": [
+      "npm run format"
+    ],
+    "*.{ts,tsx}": [
+      "npm run lint:fix",
+      "npm run format"
+    ],
+    "*.scss": [
+      "npm run lint-styles:fix",
+      "npm run format"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=16",
+    "npm": ">=8"
+  }
+}
