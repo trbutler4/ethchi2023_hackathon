@@ -51,7 +51,7 @@ var requestMap = make(map[string]interface{})
 func GetAuthRequest(w http.ResponseWriter, r *http.Request) {
 
     // Audience is verifier id
-    rURL := "NGROK URL"
+    rURL := "https://7315-108-75-174-15.ngrok-free.app"
     sessionID := 1
     CallbackURL := "/api/callback"
     Audience := "did:polygonid:polygon:mumbai:2qDyy1kEo2AYcP3RT4XGea7BtxsY285szg6yP9SPrs"
@@ -71,12 +71,12 @@ func GetAuthRequest(w http.ResponseWriter, r *http.Request) {
     mtpProofRequest.Query = map[string]interface{}{
         "allowedIssuers": []string{"*"},
         "credentialSubject": map[string]interface{}{
-            "birthday": map[string]interface{}{
-                "$lt": 20000101,
+            "credit_score": map[string]interface{}{
+                "$gt": 700,
             },
         },
-        "context": "https://raw.githubusercontent.com/iden3/claim-schema-vocab/main/schemas/json-ld/kyc-v3.json-ld",
-        "type":    "KYCAgeCredential",
+        "context": "ipfs://QmSnFyKjeuD4FSaxXjcryLDj1VD9DDezA7p8N1kfXTZ7ei",
+        "type":    "customSchema",
     }
     request.Body.Scope = append(request.Body.Scope, mtpProofRequest)
 
